@@ -3,6 +3,7 @@ package net.javaguides.order_service.controller;
 import java.util.UUID;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +22,7 @@ public class OrderController {
     }
 
     @PostMapping("/orders")
-    public String placeOrder(Order order){
+    public String placeOrder(@RequestBody Order order){
         order.setOrderId(UUID.randomUUID().toString());
         
         OrderEvent orderEvent = new OrderEvent();
